@@ -39,5 +39,9 @@ export default defineConfig({
         },
       },
     },
+    // no-effect
+    boxShadow: {
+      radiant: '0 0 10px #cacaca',
+    },
   },
 })

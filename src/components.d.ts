@@ -4,8 +4,21 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AntDesignHeartFilled: typeof import('~icons/ant-design/heart-filled')['default']
+    CarbonCampsite: typeof import('~icons/carbon/campsite')['default']
+    CarbonCategory: typeof import('~icons/carbon/category')['default']
+    CarbonDicomOverlay: typeof import('~icons/carbon/dicom-overlay')['default']
+    CarbonHome: typeof import('~icons/carbon/home')['default']
+    CarbonLanguage: typeof import('~icons/carbon/language')['default']
+    CarbonLink: typeof import('~icons/carbon/link')['default']
+    CarbonLogoGithub: typeof import('~icons/carbon/logo-github')['default']
+    CarbonMoon: typeof import('~icons/carbon/moon')['default']
+    CarbonSearch: typeof import('~icons/carbon/search')['default']
+    CarbonSun: typeof import('~icons/carbon/sun')['default']
+    CarbonWarning: typeof import('~icons/carbon/warning')['default']
     Counter: typeof import('./components/Counter.vue')['default']
     Footer: typeof import('./components/Footer.vue')['default']
+    Header: typeof import('./components/Header.vue')['default']
     README: typeof import('./components/README.md')['default']
   }
 }
