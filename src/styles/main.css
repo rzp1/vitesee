@@ -12,6 +12,10 @@ html.dark {
   background: #121212;
 }
 
+a {
+  display: block;
+}
+
 #nprogress {
   pointer-events: none;
 }

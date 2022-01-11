@@ -31,14 +31,17 @@ const toggleLocales = () => {
         <div class="icon-btn mx-3 group relative">
           <carbon-category class="align-text-bottom mr-1" />分类
           <ul
-            class="invisible group-hover:visible absolute z-100 w-156px top-70px bg-gray-50 dark:bg-gray-800 bg-opacity-95 shadow-radiant"
+            class="hidden group-hover:block absolute z-100 w-156px top-70px bg-gray-50 dark:bg-gray-800 bg-opacity-95 shadow-radiant"
           >
-            <li>
-              <router-link class="px-20px h-50px" to="/category/1">
-                FE
+            <li
+              v-for="item in [`FE`, `Life`]"
+              :key="item"
+              class="text-dark-100 hover:text-teal-600 hover:ml-10px transition-all duration-250 dark:text-gray-100 dark:hover:text-teal-600"
+            >
+              <router-link class="px-20px h-50px leading-50px" to="/category/1">
+                {{ item }}
               </router-link>
             </li>
-            <li>Life</li>
           </ul>
         </div>
         <router-link class="icon-btn mx-3" to="/" :title="t('button.home')">
@@ -47,7 +50,7 @@ const toggleLocales = () => {
         <router-link class="icon-btn mx-3" to="/" :title="t('button.home')">
           <carbon-link class="align-text-bottom mr-1" />友链
         </router-link>
-        <router-link class="icon-btn mx-3" to="/" :title="t('button.home')">
+        <router-link class="icon-btn mx-3" to="/about" :title="t('button.home')">
           <ant-design-heart-filled class="align-text-bottom mr-1" />关于
         </router-link>
 
@@ -63,10 +66,6 @@ const toggleLocales = () => {
         <a class="icon-btn mx-2" :title="t('button.toggle_langs')" @click="toggleLocales">
           <carbon-language class="align-text-bottom" />
         </a>
-
-        <router-link class="icon-btn mx-2" to="/about" :title="t('button.about')">
-          <carbon-dicom-overlay class="align-text-bottom" />
-        </router-link>
 
         <a
           class="icon-btn mx-2"
