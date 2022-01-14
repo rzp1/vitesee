@@ -1,12 +1,19 @@
 header:
   logo: Aaron Nest
-button:
-  about: About
-  back: Back
-  go: GO
   home: Home
   toggle_dark: Toggle dark mode
   toggle_langs: Change languages
+  category: Category
+  FE: FE
+  Life: Life
+  Archive: Archive
+  Website-link: Website link
+  about: About
+
+button:
+  back: Back
+  go: GO
+  
 intro:
   desc: Opinionated Vite Starter Template
   dynamic-route: Demo of dynamic route

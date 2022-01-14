@@ -15,55 +15,71 @@ const toggleLocales = () => {
     class="text-14px sticky top-0 h-70px w-full bg-gray-50 dark:bg-gray-800 bg-opacity-95 shadow-sm"
   >
     <div class="max-w-1080px m-auto flex justify-between text-gray-700 dark:text-gray-200">
+      <div class="sm:hidden">
+        123
+      </div>
       <router-link
-        class="icon-btn h-70px text-3xl leading-70px"
+        class="icon-btn h-70px text-3xl leading-70px sm:flex-1"
         to="/"
-        :title="t('button.home')"
+        :title="t('header.home')"
       >
         {{ t('header.logo') }}
       </router-link>
-      <div class="nav-collapse" />
-      <nav class="text-xl h-70px leading-70px">
-        <router-link class="icon-btn mx-3" to="/" :title="t('button.home')">
+      <nav class="<sm:hidden text-xl h-70px leading-70px">
+        <router-link class="icon-btn mx-3" to="/" :title="t('header.home')">
           <carbon-home class="align-text-bottom mr-1" />
-          {{ t('button.home') }}
+          {{ t('header.home') }}
         </router-link>
         <div class="icon-btn mx-3 group relative">
-          <carbon-category class="align-text-bottom mr-1" />分类
+          <carbon-category class="align-text-bottom mr-1" />{{ t('header.category') }}
           <ul
             class="hidden group-hover:block absolute z-100 w-156px top-70px bg-gray-50 dark:bg-gray-800 bg-opacity-95 shadow-radiant"
           >
             <li
-              v-for="item in [`FE`, `Life`]"
-              :key="item"
+              v-for="item in [
+                {
+                  title: 'header.FE',
+                  to: '/category/1',
+                },
+                {
+                  title: 'header.Life',
+                  to: '/category/1',
+                },
+              ]"
+              :key="item.title"
               class="text-dark-100 hover:text-teal-600 hover:ml-10px transition-all duration-250 dark:text-gray-100 dark:hover:text-teal-600"
             >
-              <router-link class="px-20px h-50px leading-50px" to="/category/1">
-                {{ item }}
+              <router-link
+                class="px-20px h-50px leading-50px"
+                :to="item.to"
+                :title="t(item.title)"
+              >
+                {{ t(item.title) }}
               </router-link>
             </li>
           </ul>
         </div>
-        <router-link class="icon-btn mx-3" to="/" :title="t('button.home')">
-          <carbon-dicom-overlay class="align-text-bottom mr-1" />存档
+        <router-link class="icon-btn mx-3" to="/" :title="t('header.Archive')">
+          <carbon-dicom-overlay class="align-text-bottom mr-1" />
+          {{ t('header.Archive') }}
         </router-link>
-        <router-link class="icon-btn mx-3" to="/" :title="t('button.home')">
-          <carbon-link class="align-text-bottom mr-1" />友链
+        <router-link class="icon-btn mx-2" to="/" :title="t('header.Website-link')">
+          <carbon-link class="align-text-bottom" />
         </router-link>
-        <router-link class="icon-btn mx-3" to="/about" :title="t('button.home')">
-          <ant-design-heart-filled class="align-text-bottom mr-1" />关于
+        <router-link class="icon-btn mx-2" to="/about" :title="t('header.about')">
+          <ant-design-heart-filled class="align-text-bottom" />
         </router-link>
 
-        <button
+        <header
           class="icon-btn mx-2 !outline-none"
-          :title="t('button.toggle_dark')"
+          :title="t('header.toggle_dark')"
           @click="toggleDark()"
         >
           <carbon-moon v-if="isDark" class="align-text-bottom" />
           <carbon-sun v-else class="align-text-bottom" />
-        </button>
+        </header>
 
-        <a class="icon-btn mx-2" :title="t('button.toggle_langs')" @click="toggleLocales">
+        <a class="icon-btn mx-2" :title="t('header.toggle_langs')" @click="toggleLocales">
           <carbon-language class="align-text-bottom" />
         </a>
 
@@ -76,8 +92,10 @@ const toggleLocales = () => {
         >
           <carbon-logo-github class="align-text-bottom" />
         </a>
-        <carbon-search class="icon-btn mx-2 align-text-bottom" />
       </nav>
+      <div class="h-70px pt-23px mx-2px">
+        <carbon-search class="text-size-20px" />
+      </div>
     </div>
   </header>
 </template>
